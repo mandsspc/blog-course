@@ -84,3 +84,42 @@ export const MenuBarItem = styled.span`
         width: 3.2rem;
       `}
 `;
+
+export const MenuBarItemLink = styled(AniLink)`
+    color: var(--texts);
+    cursor: pointer;
+    display: block;
+    height: 3rem;
+    padding: 1rem;
+    position: relative;
+    width: 3.5rem;
+
+    &.light {
+        color: #d4d400;
+
+        &:hover {
+            color: #e2e240;
+        }
+    }
+
+    &:hover {
+        color: var(--highlight);
+    }
+
+    &.display {
+        ${media.lessThan("large")`
+          display: none;
+        `}
+      }
+      ${media.greaterThan("large")`
+        &:hover {
+          color: var(--highlight);
+        }
+      `}
+      ${media.lessThan("large")`
+        height: 3.2rem;
+        padding: .9rem;
+        position: relative;
+        width: 3.2rem;
+      `}
+`;

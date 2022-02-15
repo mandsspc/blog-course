@@ -25,6 +25,15 @@ const MenuBar = () => {
         window.__onDisplayChange = () => setDisplay(window.__display)
     }, [])
 
+    const scrollTo = () => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: 'smooth',
+		});
+	};
+
+
     return (
         <S.MenuBarWrapper>
             <S.MenuBarGroup>
@@ -36,9 +45,9 @@ const MenuBar = () => {
                     duration={0.6}
                     title="Voltar para Home"
                 >
-                    <S.MenuBarItem>
+                    <S.MenuBarItemLink to="/">
                         <Home />
-                    </S.MenuBarItem>
+                    </S.MenuBarItemLink>
                 </S.MenuBarLink>
                 <S.MenuBarLink
                     to="/search/"
@@ -48,9 +57,9 @@ const MenuBar = () => {
                     duration={0.6}
                     title="Pesquisar"
                 >
-                    <S.MenuBarItem>
+                   {/*  <S.MenuBarItem>
                         <Search />
-                    </S.MenuBarItem>
+                    </S.MenuBarItem> */}
                 </S.MenuBarLink>
             </S.MenuBarGroup>
             <S.MenuBarGroup> 
@@ -68,7 +77,7 @@ const MenuBar = () => {
                 >   
                    {isListMode ? <Grid /> : <List /> } 
                 </S.MenuBarItem>
-                <S.MenuBarItem title="Ir para o topo">
+                <S.MenuBarItem onClick={scrollTo} title="Ir para o topo">
                     <Arrow />
                 </S.MenuBarItem>
             </S.MenuBarGroup>
